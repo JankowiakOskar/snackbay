@@ -1,7 +1,11 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "baseUrl": "src",
+    "paths": {
+      "components": ["components/*"]
+    }
   },
-  "types": ["jest", "styled-components-react-native"],
+  "types": ["jest", "styled-components-react-native"]
 }

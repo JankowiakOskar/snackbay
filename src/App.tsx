@@ -1,9 +1,8 @@
 import { registerRootComponent } from 'expo';
+import Navigation from 'navigation';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from 'styled-components/native';
-
-import Navigation from './navigation';
-import { theme } from './styles/theme';
+import { theme } from 'styles/theme';
 
 export default function App() {
   return (

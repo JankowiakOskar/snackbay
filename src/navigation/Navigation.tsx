@@ -1,9 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-
-import Home from '../screens/Home';
-import Settings from '../screens/Settings';
-import type { RootNavigationParams } from './types';
+import type { RootNavigationParams } from 'navigation/types';
+import Home from 'screens/Home';
+import Settings from 'screens/Settings';
 
 const Tab = createBottomTabNavigator<RootNavigationParams>();
 
