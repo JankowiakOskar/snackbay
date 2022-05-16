@@ -9,6 +9,7 @@ import { StyledScrollView } from './Home.styles';
 
 const Home = () => {
   const { location, onChangeLocation } = useLocationContext();
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar backgroundColor={theme.color.white} style="dark" />
