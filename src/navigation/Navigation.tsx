@@ -7,6 +7,7 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import Home from '@screens/Home';
 import Settings from '@screens/Settings';
+import { LocationProvider } from '@services/location/LocationContext';
 import { theme } from '@styles/theme';
 
 const Tab = createBottomTabNavigator<RootNavigationParams>();
@@ -30,28 +31,33 @@ const globalHeaderStyles: BottomTabNavigationOptions = {
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Home" screenOptions={globalHeaderStyles}>
-        <Tab.Screen
-          name="Home"
-          component={Home}
-          options={{
-            headerShown: false,
-            tabBarIcon: ({ size, color }) => (
-              <AntDesign name="home" size={size} color={color} />
-            ),
-            tabBarHideOnKeyboard: true,
-          }}
-        />
-        <Tab.Screen
-          name="Settings"
-          component={Settings}
-          options={{
-            tabBarIcon: ({ size, color }) => (
-              <AntDesign name="setting" size={size} color={color} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
+      <LocationProvider>
+        <Tab.Navigator
+          initialRouteName="Home"
+          screenOptions={globalHeaderStyles}
+        >
+          <Tab.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerShown: false,
+              tabBarIcon: ({ size, color }) => (
+                <AntDesign name="home" size={size} color={color} />
+              ),
+              tabBarHideOnKeyboard: true,
+            }}
+          />
+          <Tab.Screen
+            name="Settings"
+            component={Settings}
+            options={{
+              tabBarIcon: ({ size, color }) => (
+                <AntDesign name="setting" size={size} color={color} />
+              ),
+            }}
+          />
+        </Tab.Navigator>
+      </LocationProvider>
     </NavigationContainer>
   );
 };

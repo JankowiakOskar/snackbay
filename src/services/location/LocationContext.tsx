@@ -2,15 +2,27 @@ import type {
   LocationContextState,
   LocationProviderProps,
 } from '@services/location/location.types';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useCallback, useContext, useState } from 'react';
 
 const LocationContext = createContext({} as LocationContextState);
 
 export const LocationProvider = ({ children }: LocationProviderProps) => {
-  const [location, setLocation] = useState();
+  const [location, setLocation] = useState('');
+
+  const onChangeLocation = useCallback(
+    (locationValue: string) => setLocation(locationValue),
+    [],
+  );
+
+  const ctxValue = {
+    location,
+    onChangeLocation,
+  };
 
   return (
-    <LocationContext.Provider value={{}}>{children}</LocationContext.Provider>
+    <LocationContext.Provider value={ctxValue}>
+      {children}
+    </LocationContext.Provider>
   );
 };
 
