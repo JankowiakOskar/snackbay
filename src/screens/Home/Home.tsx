@@ -1,8 +1,10 @@
 import SearchBar from '@components/shared/SearchBar';
 import { useLocationContext } from '@services/location/LocationContext';
 import { theme } from '@styles/theme';
+import Constants from 'expo-constants';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { StyledScrollView } from './Home.styles';
@@ -23,6 +25,7 @@ const Home = () => {
           value={location}
           onChangeText={onChangeLocation}
         />
+        <Text>{Constants?.manifest?.extra?.LOCATION_API_URL}</Text>
       </StyledScrollView>
     </SafeAreaView>
   );
