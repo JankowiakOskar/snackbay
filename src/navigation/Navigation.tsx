@@ -39,6 +39,7 @@ const Navigation = () => {
             tabBarIcon: ({ size, color }) => (
               <AntDesign name="home" size={size} color={color} />
             ),
+            tabBarHideOnKeyboard: true,
           }}
         />
         <Tab.Screen

@@ -1,20 +1,19 @@
+import SearchBar from '@components/shared/SearchBar';
+import { theme } from '@styles/theme';
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { View } from 'react-native';
-import styled from 'styled-components/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-interface TextProps {
-  readonly isActive?: boolean;
-}
-
-const StyledText = styled.Text<TextProps>`
-  color: ${({ theme: { color } }) => color.primary};
-`;
+import { StyledScrollView } from './Home.styles';
 
 const Home = () => {
   return (
-    <View>
-      <StyledText>Home</StyledText>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar backgroundColor={theme.color.white} style="dark" />
+      <StyledScrollView stickyHeaderIndices={[0]}>
+        <SearchBar placeholder="Search place..." round />
+      </StyledScrollView>
+    </SafeAreaView>
   );
 };
 
