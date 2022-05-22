@@ -3,20 +3,40 @@ import type {
   LocationProviderProps,
 } from '@services/location/location.types';
 import { createContext, useCallback, useContext, useState } from 'react';
+import { useAxiosService } from 'src/hooks/useAxiosService';
+
+import { DEFAULT_LOCATON } from './constants';
+import { getLocationByPhrase } from './location.service';
 
 const LocationContext = createContext({} as LocationContextState);
 
 export const LocationProvider = ({ children }: LocationProviderProps) => {
-  const [location, setLocation] = useState('');
+  const [searchPhrase, setSearchPhrase] = useState(DEFAULT_LOCATON);
 
-  const onChangeLocation = useCallback(
-    (locationValue: string) => setLocation(locationValue),
+  const { data, isPending, requestService } = useAxiosService({
+    service: getLocationByPhrase,
+    callServiceOnMount: true,
+    initialServiceParams: {
+      query: searchPhrase,
+    },
+  });
+
+  const onChangePhraseLocation = useCallback(
+    (value: string) => setSearchPhrase(value),
     [],
   );
 
+  const fetchLocation = useCallback(
+    () => requestService({ query: searchPhrase }),
+    [searchPhrase],
+  );
+
   const ctxValue = {
-    location,
-    onChangeLocation,
+    searchPhrase,
+    locations: data,
+    onChangePhraseLocation,
+    fetchLocation,
+    isPending,
   };
 
   return (

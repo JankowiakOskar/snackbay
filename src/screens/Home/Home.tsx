@@ -10,7 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyledScrollView } from './Home.styles';
 
 const Home = () => {
-  const { location, onChangeLocation } = useLocationContext();
+  const { searchPhrase, onChangePhraseLocation } = useLocationContext();
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -22,8 +22,8 @@ const Home = () => {
         <SearchBar
           placeholder="Search place..."
           round
-          value={location}
-          onChangeText={onChangeLocation}
+          value={searchPhrase}
+          onChangeText={onChangePhraseLocation}
         />
         <Text>{Constants?.manifest?.extra?.LOCATION_API_URL}</Text>
       </StyledScrollView>
