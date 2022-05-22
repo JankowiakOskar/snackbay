@@ -1,9 +1,9 @@
+import { useAxiosService } from '@hooks/useAxiosService/useAxiosService';
 import type {
   LocationContextState,
   LocationProviderProps,
 } from '@services/location/location.types';
 import { createContext, useCallback, useContext, useState } from 'react';
-import { useAxiosService } from 'src/hooks/useAxiosService';
 
 import { DEFAULT_LOCATON } from './constants';
 import { getLocationByPhrase } from './location.service';

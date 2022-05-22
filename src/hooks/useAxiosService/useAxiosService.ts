@@ -6,6 +6,7 @@ import type { ServiceHook, ServiceState } from './types';
 export const useAxiosService = <ServiceArgs, ServiceData>({
   service,
   callServiceOnMount,
+  initialServiceParams,
   initialData = [] as ServiceData[],
   logError,
 }: ServiceHook<ServiceArgs, ServiceData>) => {
@@ -46,11 +47,15 @@ export const useAxiosService = <ServiceArgs, ServiceData>({
 
   useEffect(() => {
     if (callServiceOnMount) {
-      requestService();
+      if (initialServiceParams) {
+        requestService(initialServiceParams);
+      } else {
+        requestService();
+      }
     }
 
     return abort;
-  }, [callServiceOnMount]);
+  }, [callServiceOnMount, requestService]);
 
   return {
     requestService,

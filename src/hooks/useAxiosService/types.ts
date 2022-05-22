@@ -9,9 +9,7 @@ type Service<ServiceArgs, ServiceData> = (
 interface ServiceHook<ServiceArgs, ServiceData> {
   service: Service<ServiceArgs, ServiceData>;
   callServiceOnMount: boolean;
-  initialServiceParams?: {
-    [Property in keyof ServiceArgs]: ServiceArgs[Property];
-  };
+  initialServiceParams?: ServiceArgs;
   initialData?: ServiceData[];
   logError?: (error: HttpError) => void;
 }
