@@ -15,6 +15,7 @@ module.exports = function (api) {
             '@assets': './assets',
             '@helpers': './src/helpers',
             '@hooks': './src/hooks',
+            '@providers': './src/providers',
           },
           extensions: ['.ts', '.tsx'],
         },

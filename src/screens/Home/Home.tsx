@@ -1,5 +1,5 @@
 import SearchBar from '@components/shared/SearchBar';
-import { useLocationContext } from '@services/location/LocationContext';
+import { useLocationContext } from '@providers/LocationContext/LocationContext';
 import { theme } from '@styles/theme';
 import Constants from 'expo-constants';
 import { StatusBar } from 'expo-status-bar';
@@ -10,8 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyledScrollView } from './Home.styles';
 
 const Home = () => {
-  const { searchPhrase, onChangePhraseLocation, fetchLocation, locations } =
-    useLocationContext();
+  const { searchPhrase, onChangePhraseLocation } = useLocationContext();
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -25,7 +24,7 @@ const Home = () => {
           round
           value={searchPhrase}
           onChangeText={onChangePhraseLocation}
-          onSubmitEditing={fetchLocation}
+          // onSubmitEditing={fetchLocation}
         />
         <Text>{Constants?.manifest?.extra?.LOCATION_API_URL}</Text>
       </StyledScrollView>

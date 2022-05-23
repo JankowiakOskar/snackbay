@@ -33,6 +33,8 @@ export default {
     extra: {
       LOCATION_API_URL: process.env.LOCATION_API_URL,
       LOCATION_API_ACCESS_KEY: process.env.LOCATION_API_ACCESS_KEY,
+      PLACE_API_KEY: process.env.PLACE_API_KEY,
+      PLACE_API_BASE_URL: process.env.PLACE_API_BASE_URL,
     },
   },
 };

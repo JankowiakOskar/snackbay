@@ -1,7 +1,3 @@
-import React from 'react';
-
-type QueryLocation = string;
-
 export interface Location {
   latitude: number;
   longitude: number;
@@ -15,17 +11,5 @@ export interface Location {
 }
 
 export interface LocationParams {
-  query: QueryLocation;
-}
-
-export interface LocationContextState {
-  searchPhrase: QueryLocation;
-  locations: Location[];
-  onChangePhraseLocation: (value: string) => void;
-  fetchLocation: () => void;
-  isPending: boolean;
-}
-
-export interface LocationProviderProps {
-  children: React.ReactNode;
+  query: string;
 }

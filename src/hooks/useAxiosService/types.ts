@@ -4,19 +4,19 @@ import type { AxiosResponse } from 'axios';
 type Service<ServiceArgs, ServiceData> = (
   signal: AbortSignal,
   ...args: ServiceArgs[]
-) => Promise<AxiosResponse<ServiceData[]>>;
+) => Promise<AxiosResponse<ServiceData>>;
 
 interface ServiceHook<ServiceArgs, ServiceData> {
   service: Service<ServiceArgs, ServiceData>;
   callServiceOnMount: boolean;
   initialServiceParams?: ServiceArgs;
-  initialData?: ServiceData[];
+  initialData?: ServiceData;
   logError?: (error: HttpError) => void;
 }
 
 interface ServiceState<ServiceData> {
   isPending: boolean;
-  data: ServiceData[];
+  data: ServiceData;
   error?: HttpError;
 }
 

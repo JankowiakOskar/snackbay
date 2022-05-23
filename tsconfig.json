@@ -11,7 +11,8 @@
       "@services/*": ["src/services/*"],
       "@helpers/*": ["src/helpers/*"],
       "@assets/*": ["assets/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@providers/*": ["src/providers/*"],
     }
   },
   "types": ["jest", "styled-components-react-native"]
