@@ -1,5 +1,6 @@
 import { AntDesign } from '@expo/vector-icons';
 import type { RootNavigationParams } from '@navigation/types';
+import { LocationProvider } from '@providers/LocationContext';
 import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
@@ -7,7 +8,6 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import Home from '@screens/Home';
 import Settings from '@screens/Settings';
-import { LocationProvider } from '@services/location/LocationContext';
 import { theme } from '@styles/theme';
 
 const Tab = createBottomTabNavigator<RootNavigationParams>();
