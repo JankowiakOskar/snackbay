@@ -1,6 +1,6 @@
 import { AntDesign } from '@expo/vector-icons';
 import type { RootNavigationParams } from '@navigation/types';
-import { LocationProvider } from '@providers/LocationContext';
+import { LocationProvider } from '@providers/LocationContext/LocationContext';
 import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
