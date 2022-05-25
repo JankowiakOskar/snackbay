@@ -44,8 +44,6 @@ export const LocationProvider = ({ children }: LocationProviderProps) => {
     }
   }, [isUsingLocationAllowed, userCoords]);
 
-  console.log(places);
-
   const ctxValue = {
     searchPhrase,
     places,

@@ -33,7 +33,6 @@ export const useAxiosService = <ServiceArgs, ServiceData>({
 
         setState((prevState) => ({ ...prevState, data }));
       } catch (error) {
-        console.log(error);
         const httpError = parseHttpError(error);
 
         setState((prevState) => ({ ...prevState, error: httpError }));
