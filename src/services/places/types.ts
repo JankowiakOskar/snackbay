@@ -19,9 +19,10 @@ export interface PlaceResponse {
   };
   link: string;
   location: {
-    formatted_adress: string;
+    formatted_address: string;
     [key: string]: unknown;
   };
+  distance: number;
   [key: string]: unknown;
 }
 

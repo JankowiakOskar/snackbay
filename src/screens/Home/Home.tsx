@@ -30,7 +30,8 @@ const Home = () => {
         fsq_id,
         name,
         categories,
-        location: { formatted_adress },
+        location: { formatted_address },
+        distance,
       },
     }: {
       item: PlaceResponse;
@@ -38,7 +39,9 @@ const Home = () => {
       <CardPlace
         key={fsq_id}
         title={name}
-        subtitle={formatted_adress}
+        subtitle={formatted_address}
+        distance={distance}
+        categories={categories}
         uri={`${categories[0].icon.prefix}${88}${categories[0].icon.suffix}`}
       />
     ),
@@ -50,6 +53,10 @@ const Home = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar backgroundColor={theme.color.dark} style="light" />
       <StyledFlatList
+        contentContainerStyle={{
+          flexGrow: 1,
+          padding: 10,
+        }}
         data={places}
         renderItem={renderPlaceCard}
         ListHeaderComponent={renderSearchBar}

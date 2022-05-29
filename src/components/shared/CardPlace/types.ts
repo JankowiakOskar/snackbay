@@ -1,5 +1,7 @@
 export interface CardPlaceProps {
   title: string;
-  subtitle: string;
+  distance: number;
+  categories: { name: string }[];
   uri: string;
+  subtitle?: string;
 }

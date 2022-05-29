@@ -40,8 +40,7 @@ export const LocationProvider = ({ children }: LocationProviderProps) => {
   useEffect(() => {
     if (isUsingLocationAllowed && userCoords) {
       const { latitude, longitude } = userCoords;
-
-      // fetchPlaces({ latitude_longitude: `${latitude},${longitude}` });
+      fetchPlaces({ latitude_longitude: `${latitude},${longitude}` });
     }
   }, [isUsingLocationAllowed, userCoords]);
 
