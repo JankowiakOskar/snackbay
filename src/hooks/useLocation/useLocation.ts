@@ -12,10 +12,6 @@ interface LocationState {
   coords: LocationObjectCoords | null;
 }
 
-type LocationOptions = {
-  [Property in keyof LocationState]?: LocationState[Property];
-};
-
 interface UseLocationParams {
   shouldCheckLocation?: boolean;
 }
@@ -33,7 +29,7 @@ export const useLocation = ({
   const isUsingLocationAllowed = status === PermissionStatus.GRANTED && !error;
 
   const updateLocation = useCallback(
-    (value: LocationOptions) =>
+    (value: Partial<LocationState>) =>
       setLocation((prevLocation) => ({ ...prevLocation, ...value })),
     [],
   );
